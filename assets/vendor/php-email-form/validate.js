@@ -16,9 +16,9 @@
 
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
-      
+      // alert(action+"action..............")
       if( ! action ) {
-        displayError(thisForm, 'The form action property is not set!');
+        //displayError(thisForm, 'The form action property is not set!');
         return;
       }
       thisForm.querySelector('.loading').classList.add('d-block');
@@ -37,7 +37,7 @@
                 php_email_form_submit(thisForm, action, formData);
               })
             } catch(error) {
-              displayError(thisForm, error);
+              displayError(thisForm, error +"E1");
             }
           });
         } else {
@@ -64,7 +64,7 @@
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      if (data.trim() === 'OK') {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
@@ -72,13 +72,13 @@
       }
     })
     .catch((error) => {
-      displayError(thisForm, error);
+      displayError(thisForm, error +"E2");
     });
   }
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
+    thisForm.querySelector('.error-message').innerHTML = error +"E3";
     thisForm.querySelector('.error-message').classList.add('d-block');
   }
 
