@@ -822,7 +822,10 @@
   <script>
     let forms = document.getElementById('successDiv')
     function sendEmail() {
+
       forms.querySelector('.loading').classList.add('d-block');
+
+
       Email.send({
 //        Host : "smtp.elasticemail.com",
         SecureToken : "58009271-2324-49eb-8129-174e02991665",//20
@@ -850,8 +853,6 @@
                   forms.querySelector('.error-message').classList.add('d-block');
                 }
               }
-
-
       );
 
       // Your security token is 58009271-2324-49eb-8129-174e02991665 Please take note of this.
